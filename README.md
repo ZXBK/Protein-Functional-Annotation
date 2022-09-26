@@ -10,6 +10,10 @@ Version:
 ## Remove_signal_seq.py
 [Docker hub](https://hub.docker.com/r/el54vup/signalp/tags)
 
+In order to select potential AMP sequences, remove signal peptides from all sequences. 
+
+Then use them as input to [AI4AXP](https://axp.iis.sinica.edu.tw) website. 
+
 ### Usage: 
 
 ```bash
@@ -22,3 +26,4 @@ python3.8 Remove_signal_seq.py -i protein.faa -s signalp_output -o output.faa
 ### Note: 
 - File should all be in the current directory
 - Remove_signal_seq.py must be executable (sudo chmod -R 777 ./*)  
+- output.faa can be predicted with [AI4AXP](https://axp.iis.sinica.edu.tw)
