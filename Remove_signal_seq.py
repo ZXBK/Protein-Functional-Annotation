@@ -22,8 +22,9 @@ def parse_sp(sp,faa,storefile):
     for i in range(len(sp)):
         sp_name = sp['seq'][i]
         sp_end = sp['end'][i]
-        outputfile = ">"+ sp_name+ '\n'+  faa[sp_name][sp_end:]+ '\n'
-        storefile.write(outputfile)
+        if len(faa[sp_name][sp_end:])<=50:
+            outputfile = ">"+ sp_name+ '\n'+  faa[sp_name][sp_end:]+ '\n'
+            storefile.write(outputfile)
         
 def main():
     parser = argparse.ArgumentParser(description = 'Input: SignalP v4 output file, Protein fasta file \nOutput: Signal Protein fasta without signal part',
