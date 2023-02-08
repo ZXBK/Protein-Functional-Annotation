@@ -27,3 +27,31 @@ python3.8 Remove_signal_seq.py -i protein.faa -s signalp_output -o output.faa
 - File should all be in the current directory
 - Remove_signal_seq.py must be executable (sudo chmod -R 777 ./*)  
 - output.faa can be predicted with [AI4AXP](https://axp.iis.sinica.edu.tw)
+
+---
+## DownloadSRA.sh
+sra-tools 2.11.1 docker
+
+input: SRR000001
+
+output: fastq file
+
+
+### Usage:
+```bash
+docker pull ncbi/sra-tools:2.11.1
+chmod u+x DownloadSRA.sh
+./DownloadSRA.sh -h
+./DownloadSRA.sh -f SRR000001
+```
+### Note:
+
+Be careful with memory usage!
+One SRA file will create one container.
+
+```bash
+for i in $(cat file)
+do
+        ./DownloadSRA.sh ${i}    
+done
+```
