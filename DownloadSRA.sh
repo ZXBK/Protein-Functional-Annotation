@@ -1,7 +1,7 @@
 #!/bin/bash
 #Kao Chih Hsin
 #Sep3,2021
-##docker pull ncbi/sra-tools:2.11.1
+##docker pull ncbi/sra-tools:3.0.1
 ##chmod u+x *.sh 
 
 usage()
@@ -28,12 +28,12 @@ done
 
 echo Start download NCBI accession: $file ...
 
-nohup docker run --rm -v $PWD:/in -w /in ncbi/sra-tools:2.11.1 prefetch $file &
+nohup docker run --rm -v $PWD:/in -w /in 67915ee658fa prefetch $file &
 pids="$pids $!"
 echo $pids
 wait $pids
 
-nohup docker run --rm -v $PWD:/in -w /in ncbi/sra-tools:2.11.1 fasterq-dump -S $file &
+nohup docker run --rm -v $PWD:/in -w /in 67915ee658fa fasterq-dump $file &
 pids="$pids $!"
 echo $pids
 wait $pids
